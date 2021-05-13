@@ -1,0 +1,11 @@
+﻿@model StudentModel
+
+<h1>Edit student info - @Model.Name</h1>
+
+<form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+
+    @await Html.PartialAsync("_CreateOrUpdate", Model)
+
+    <button type="submit">Submit</button>
+</form> 

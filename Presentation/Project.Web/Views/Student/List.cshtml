@@ -1,0 +1,27 @@
+﻿@model IEnumerable<StudentModel>
+
+<a asp-action="Create">Add student</a>
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>City</td>
+            <td>State</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.Name</td>
+                    <td>@student.City</td>
+                    <td>@student.State</td>
+                    <td><a asp-action="Edit" asp-route-id="@student.Id">Edit</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
